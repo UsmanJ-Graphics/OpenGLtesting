@@ -77,7 +77,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Osman\src\vendor\iamgui;$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -98,7 +98,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Osman\src\vendor\iamgui;$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,7 +117,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Osman\src\vendor\iamgui;$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,7 +138,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Osman\src\vendor\iamgui;$(SolutionDir)Osman\src;$(SolutionDir)Dependencies\include;$(SolutionDir)Osman\src\vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,6 +157,7 @@
     <ClInclude Include="src\shader.h" />
     <ClInclude Include="src\test\test.h" />
     <ClInclude Include="src\test\TestClearColor.h" />
+    <ClInclude Include="src\test\TestTexture.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\vendor\iamgui\imconfig.h" />
     <ClInclude Include="src\vendor\iamgui\imgui.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\Source.cpp" />
     <ClCompile Include="src\test\TestClearColor.cpp" />
+    <ClCompile Include="src\test\TestTexture.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\vendor\iamgui\imgui.cpp" />
     <ClCompile Include="src\vendor\iamgui\imgui_demo.cpp" />

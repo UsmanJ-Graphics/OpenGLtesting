@@ -8,10 +8,10 @@
 #include"Texture.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "vendor/iamgui/imgui.h"
-#include "vendor/iamgui/imgui_impl_glfw.h"
-#include "vendor/iamgui/imgui_impl_opengl3.h"
 #include"test/TestClearColor.h"
+#include "test/Test.h"
+#include "test/TestClearColor.h"
+#include"test/TestTexture.h"
 
 
 
@@ -80,7 +80,7 @@ void UpdateColors(float& r, float& g, float& b, float& Ri, float& Gi, float& bi)
 int main() {
 
 	Window window(1280, 720, "OpenGL Window");
-	test::TestClearColor test;
+	
 	//Data Generation
 	//ShapeData shape = CreateCircleData(0.5f,655);
 	//ShapeData shape2 = CreateSqaureData(0.5f);
@@ -142,6 +142,16 @@ int main() {
 
 		ImGui_ImplOpenGL3_Init("#version 330");
 		ImGui::StyleColorsDark();
+		// --- NEW POLYMORPHIC TEST MANAGMENT SETUP ---
+		test::Test* currentTest = nullptr;
+		test::TestMenu* testMenu = new test::TestMenu(currentTest);
+		currentTest = testMenu;
+
+		// Register all available tests here
+		testMenu->RegisterTest  <test::TestClearColor>("Clear Color Sandbox");
+		testMenu->RegisterTest  <test::TestTexture>("2D Texture Mapping");
+		//testMenu->RegisterTest < <test::TestCoordinate>("Coordinate System");
+
 
 
 
@@ -155,14 +165,27 @@ int main() {
 
 			//UpdateColors(r, g, b, Ri, Gi, bi);
 			renderer.Clear();
-			test.OnUpdate(0.0f);
-			test.OnRender();
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplGlfw_NewFrame();
 			ImGui::NewFrame();
-			test.OnImGuiRender();
+			if (currentTest) {
+				currentTest->OnUpdate(0.0f);
+				currentTest->OnRender();
 
-		//	shader.Bind();
+
+				ImGui::Begin("Test Executive Control");
+
+				if (currentTest != testMenu && ImGui::Button("<-Return to Test Menu"))
+				{
+					delete currentTest;
+					currentTest = testMenu;
+				}
+				currentTest->OnImGuiRender();
+				ImGui::End();
+			}
+
+
+	//	shader.Bind();
 		//	
 		//	//glDrawArrays(GL_TRIANGLES, 0, 6);
 		//		{
@@ -210,7 +233,10 @@ int main() {
 
 			window.pollEvents();
 
+
 		}
+		if (currentTest != testMenu)
+			delete currentTest;
 		ImGui_ImplGlfw_Shutdown();
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui::DestroyContext();
