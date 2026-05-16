@@ -1,0 +1,10 @@
+.vs/
+out/
+build/
+*.obj
+*.exe
+*.pdb
+*.log
+*.tlog
+*.recipe
+*.ilk

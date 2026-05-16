@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Osman/Osman.vcxproj" Id="2fcb53c8-b8e5-414e-a583-df22988b67a0" />
+</Solution>
